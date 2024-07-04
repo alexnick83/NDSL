@@ -2,7 +2,6 @@ import contextlib
 from typing import Callable, Dict, Generator, Iterable, List, Optional, Tuple
 
 import numpy as np
-from numpy.lib.index_tricks import IndexExpression
 
 from ndsl.performance.timer import NullTimer, Timer
 from ndsl.types import Allocator
@@ -16,6 +15,9 @@ from ndsl.utils import (
 
 BufferKey = Tuple[Callable, Iterable[int], type]
 BUFFER_CACHE: Dict[BufferKey, List["Buffer"]] = {}
+
+
+IndexExpression = type(np.index_exp)
 
 
 class Buffer:
